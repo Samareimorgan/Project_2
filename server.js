@@ -27,6 +27,8 @@ app.set("view engine", "handlebars");
 
 // app.use(routes);
 
+require("./routes/htmlRoutes.js")(app);
+
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
   // Log (server-side) when our server has started
