@@ -12,6 +12,39 @@
     <title>Profile Page</title>
   </head>
   <body>
+      <!--FaceBook Javascript SDK for Authentication -->
+
+      <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '290716314893480',
+              cookie     : true,
+              xfbml      : true,
+              version    : 'v3.2'
+            });
+              
+            
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+              
+          };
+        
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+
+           function statusChangeCallback(response) {
+             
+           }
+        </script>
+
+  <!--Beginning of HTML Body-->
+
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Navbar</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
