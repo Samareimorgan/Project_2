@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -28,6 +28,7 @@ app.set("view engine", "handlebars");
 // app.use(routes);
 
 require("./routes/htmlRoutes.js")(app);
+require("./routes/apiRoutes.js")(app);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

@@ -1,35 +1,76 @@
-var request = require('request');
-// var keys = require('keys.js');
 
-$(".form-group").on('submit', function () {
-    console.log($("#formGroupExampleInput").val().trim()).
-$(".card-body").text($("#formGroupExampleInput").val().trim());
-function callback(error, response, body) {
-    console.log('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    if (!error && response.statusCode == 200) {
-        var info = JSON.parse(body);
-        // console.log(info.hits[0].recipe);
+function apiKey() {
+    $.get("/getkey", function (key) {
 
-        // console.log each result's label, ingredients, url, and image
-        for (var i = 0; i < info.hits.length; i++) {
-            console.log("    ");
-            console.log(info.hits[i].recipe.label);
-            console.log("Ingredients:");
-            // for loop for the ingredients array
-            info.hits[i].recipe.ingredients.forEach(function (element) {
-                console.log(element.text);
-            })
-            console.log("recipe: " + info.hits[i].recipe.url);
-            console.log("image: " + info.hits[i].recipe.image);
-            console.log("    ");
+        // AJAX call for ingredients using the recipe id provided in the first AJAX call
+        function ingredients(recipe) {
+            $.ajax({
+                url: 'https://www.food2fork.com/api/get',
+                type: 'GET',
+                data: {
+                    // key: '70c8aea98fcf8a18462e897015698b5f',
+                    // key: '06cd133b4e157f0b15c89a142ef9a5fe',
+                    // key: '1b8bca77165417483de095aec76fb259',
+                    // key: '6672f623c4ac7e28e35b289c7e8fa482',
+                    // key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
+                    key: key,
+                    rId: recipe,
+                },
+                success: function (result) {
+                    var results = JSON.parse(result);
+
+                    // retreival of recipe ingredients
+                    console.log(results.recipe.ingredients);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
         }
-    }
 
-    // extract numbers from a string
-    // var string = "½ cup sage pesto";
-    // var numbers = string.match(/\d+/g).map(Number);
-    // console.log(numbers);
+        $("#search").on('click', function () {
+            event.preventDefault();
+
+            // retrieval of input from user and formatted for API url
+            var food = $("#formGroupExampleInput").val().trim().replace(/\s/g, ',');
+
+            // input of user's search query into div below search bar
+            $(".card-body").text($("#formGroupExampleInput").val().trim());
+
+            // First AJAX call providing recipe id, image url, title of recipe, and source url
+            $.ajax({
+                url: 'https://www.food2fork.com/api/search',
+                type: 'GET',
+                data: {
+                    key: key,
+                    q: food,
+                    count: 5
+                },
+                success: function (result) {
+                    var results = JSON.parse(result);
+
+                    for (var i = 0; i < results.recipes.length; i++) {
+                        console.log(results.recipes[i].image_url);
+                        console.log(results.recipes[i].title);
+                        console.log(results.recipes[i].recipe_id);
+                        console.log(results.recipes[i].source_url);
+                    }
+
+                    results.recipes.forEach(function (element) {
+                        ingredients(element.recipe_id);
+                    });
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+            // extract numbers from a string
+            // var string = "½ cup sage pesto";
+            // var numbers = string.match(/\d+/g).map(Number);
+            // console.log(numbers);
+        });
+    });
 }
 
-request.get('https://api.edamam.com/search?q=chicken&app_id=a1e98cc1&app_key=226939f9e30d961594f853a015b4a1cf', callback);
+apiKey();
