@@ -14,6 +14,34 @@ require('dotenv').config({path: './process.env'});
 // =============================================================
 module.exports = function (app) {
 
+
+
+  //USERS
+  // GET route for getting all of the users
+  app.get("/api/users", function (req, res) {
+    db.UsersTable.findAll({}).then(function (dbUsers) {
+      res.json(dbUsers);
+    })
+  });
+  // POST route new user
+  app.post("/api/users", function (req, res) {
+    db.UsersTable.create({
+      //where: {
+      userName: req.body.userName
+      // },
+      //   text: req.body.text,
+      //   complete: req.body.complete,
+    }).error(function (err) {//error handling
+      console.log(err);
+    }).then(function (dbTodo) {
+      res.json(dbTodo);
+    });
+  });
+
+
+  //RECIPES
+  // GET route for getting all of the recipes
+
   
   // GET route for API key
   app.get('/getkey', function (req, res) {
@@ -21,55 +49,53 @@ module.exports = function (app) {
   })
 
   // GET route for getting all of the todos
+
   app.get("/api/recipes", function (req, res) {
-    // Write code here to retrieve all of the todos from the database and res.json them
-    // back to the user
     db.RecipeTable.findAll({}).then(function (dbRecipes) {
       res.json(dbRecipes);
     })
   });
-
-  // POST route for saving a new todo. We can create todo with the data in req.body
+  // POST route for saving a new recipe
   app.post("/api/recipes", function (req, res) {
-    // Write code here to create a new todo and save it to the database
-    // and then res.json back the new todo to the user
+    console.log(req.body);
     db.RecipeTable.create({
-        name: req.body.name,
-        complete: req.body.complete,
-      })
-      .then(function (dbTodo) {
-        res.json(dbTodo);
-      });
 
-
+      // where: {
+      UsersTableId: req.body.UsersTableId,
+      //   },
+      recipeName: req.body.recipeName
+    }).error(function (err) {//error handling
+      console.log(err);
+    }).then(function (dbTodo) {
+      res.json(dbTodo);
+    });
   });
 
-  //   // DELETE route for deleting todos. We can get the id of the todo to be deleted from
-  //   // req.params.id
-  //   app.delete("/api/todos/:id", function (req, res) {
-  //     db.Todo.destroy({
-  //       where: {
-  //         id: req.params.id
-  //       }
-  //     })
-  //       .then(function (dbTodo) {
-  //         res.json(dbTodo);
-  //       });
-  //   });
 
-  //   // PUT route for updating todos. We can get the updated todo data from req.body
-  //   app.put("/api/todos", function (req, res) {
-  //     db.Todo.update({
-  //       text: req.body.text,
-  //       complete: req.body.complete
-  //     },
-  //       {
-  //         where: {
-  //           id: req.body.id
-  //         }
-  //       })
-  //       .then(function (dbTodo) {
-  //         res.json(dbTodo);
-  //       });
-  //   });
+  //CART
+  // GET route for getting all of the content for the cart
+  app.get("/api/cart", function (req, res) {
+    db.CartTable.findAll({}).then(function (dbUsers) {
+      res.json(dbUsers);
+    })
+  });
+  // POST route new item to cart
+  app.post("/api/cart", function (req, res) {
+    db.CartTable.create({
+    
+      //where: {
+      RecipeTableId: req.body.RecipeTableId,
+      Ingredients: req.body.Ingredients
+
+      // },
+      //   text: req.body.text,
+      //   complete: req.body.complete,
+    }).error(function (err) {//error handling
+      console.log(err);
+    }).then(function (dbTodo) {
+      res.json(dbTodo);
+    });
+  });
+
 };
+
