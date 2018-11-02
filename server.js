@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -26,7 +26,9 @@ app.set("view engine", "handlebars");
 
 
 require("./routes/htmlRoutes.js")(app);
+
 require("./routes/api-routes")(app);
+
 
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync({ force: false }).then(function () {

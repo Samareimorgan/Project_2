@@ -8,9 +8,12 @@
 // Requiring our Todo model
 var db = require("../models");
 
+require('dotenv').config({path: './process.env'});
+
 // Routes
 // =============================================================
 module.exports = function (app) {
+
 
 
   //USERS
@@ -38,6 +41,15 @@ module.exports = function (app) {
 
   //RECIPES
   // GET route for getting all of the recipes
+
+  
+  // GET route for API key
+  app.get('/getkey', function (req, res) {
+    res.send(process.env.KEY);
+  })
+
+  // GET route for getting all of the todos
+
   app.get("/api/recipes", function (req, res) {
     db.RecipeTable.findAll({}).then(function (dbRecipes) {
       res.json(dbRecipes);
@@ -47,6 +59,7 @@ module.exports = function (app) {
   app.post("/api/recipes", function (req, res) {
     console.log(req.body);
     db.RecipeTable.create({
+
       // where: {
       UsersTableId: req.body.UsersTableId,
       //   },
@@ -57,7 +70,6 @@ module.exports = function (app) {
       res.json(dbTodo);
     });
   });
-
 
 
   //CART
@@ -86,3 +98,4 @@ module.exports = function (app) {
   });
 
 };
+
