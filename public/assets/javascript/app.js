@@ -33,4 +33,4 @@ function callback(error, response, body) {
 }
 
 request.get('https://api.edamam.com/search?q=chicken&app_id=a1e98cc1&app_key=226939f9e30d961594f853a015b4a1cf', callback);
-
+})
