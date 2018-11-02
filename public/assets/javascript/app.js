@@ -2,6 +2,8 @@
 function apiKey() {
     $.get("/getkey", function (key) {
 
+        console.log(key);
+
         // AJAX call for ingredients using the recipe id provided in the first AJAX call
         function ingredients(recipe) {
             $.ajax({
@@ -32,10 +34,10 @@ function apiKey() {
             event.preventDefault();
 
             // retrieval of input from user and formatted for API url
-            var food = $("#formGroupExampleInput").val().trim().replace(/\s/g, ',');
+            var food = $("#inlineFormInputName2").val().trim().replace(/\s/g, ',');
 
             // input of user's search query into div below search bar
-            $(".card-body").text($("#formGroupExampleInput").val().trim());
+            $("#search_term").text($("#inlineFormInputName2").val().trim());
 
             // First AJAX call providing recipe id, image url, title of recipe, and source url
             $.ajax({
@@ -44,15 +46,14 @@ function apiKey() {
                 data: {
                     key: key,
                     q: food,
-                    count: 5
+                    count: 3
                 },
                 success: function (result) {
                     var results = JSON.parse(result);
 
                     for (var i = 0; i < results.recipes.length; i++) {
-                        console.log(results.recipes[i].image_url);
-                        console.log(results.recipes[i].title);
-                        console.log(results.recipes[i].recipe_id);
+                        $(".card").append("<img class='card-img-top' id='recipe_img' src= '" + results.recipes[i].image_url + "' alt='Card image cap'>");
+                        $(".card-body").append("<h5 class='card-title' id='recipe_title' data='" + results.recipes[i].recipe_id + "'>" + results.recipes[i].title + "</h5>");
                         console.log(results.recipes[i].source_url);
                     }
 
