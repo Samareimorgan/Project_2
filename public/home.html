@@ -15,16 +15,31 @@
     <!--FaceBook Javascript SDK for Authentication -->
 
     <div id="fb-root"></div>
-      <script>
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=290716314893480&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+    <script>window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '290716314893480',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v3.2'
+      });
+        
+      
+      FB.getLoginStatus(function(response) {
+          statusChangeCallback(response);
+      });
+        
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
       </script>
 
+      
     <!--Beginning of HTML Body-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Navbar</a>
@@ -105,7 +120,7 @@
                   <label for="exampleFormControlInput1">Confirm Password</label>
                   <input type="password" class="form-control" id="confirmPassword">
                 </div>
-                
+                 
                 </form>
         </div>
         <div class="modal-footer">
