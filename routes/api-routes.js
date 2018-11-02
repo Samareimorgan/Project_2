@@ -8,9 +8,17 @@
 // Requiring our Todo model
 var db = require("../models");
 
+require('dotenv').config({path: './process.env'});
+
 // Routes
 // =============================================================
 module.exports = function (app) {
+
+  
+  // GET route for API key
+  app.get('/getkey', function (req, res) {
+    res.send(process.env.KEY);
+  })
 
   // GET route for getting all of the todos
   app.get("/api/recipes", function (req, res) {
@@ -28,7 +36,7 @@ module.exports = function (app) {
     db.RecipeTable.create({
         name: req.body.name,
         complete: req.body.complete,
-    })
+      })
       .then(function (dbTodo) {
         res.json(dbTodo);
       });
@@ -36,32 +44,32 @@ module.exports = function (app) {
 
   });
 
-//   // DELETE route for deleting todos. We can get the id of the todo to be deleted from
-//   // req.params.id
-//   app.delete("/api/todos/:id", function (req, res) {
-//     db.Todo.destroy({
-//       where: {
-//         id: req.params.id
-//       }
-//     })
-//       .then(function (dbTodo) {
-//         res.json(dbTodo);
-//       });
-//   });
+  //   // DELETE route for deleting todos. We can get the id of the todo to be deleted from
+  //   // req.params.id
+  //   app.delete("/api/todos/:id", function (req, res) {
+  //     db.Todo.destroy({
+  //       where: {
+  //         id: req.params.id
+  //       }
+  //     })
+  //       .then(function (dbTodo) {
+  //         res.json(dbTodo);
+  //       });
+  //   });
 
-//   // PUT route for updating todos. We can get the updated todo data from req.body
-//   app.put("/api/todos", function (req, res) {
-//     db.Todo.update({
-//       text: req.body.text,
-//       complete: req.body.complete
-//     },
-//       {
-//         where: {
-//           id: req.body.id
-//         }
-//       })
-//       .then(function (dbTodo) {
-//         res.json(dbTodo);
-//       });
-//   });
+  //   // PUT route for updating todos. We can get the updated todo data from req.body
+  //   app.put("/api/todos", function (req, res) {
+  //     db.Todo.update({
+  //       text: req.body.text,
+  //       complete: req.body.complete
+  //     },
+  //       {
+  //         where: {
+  //           id: req.body.id
+  //         }
+  //       })
+  //       .then(function (dbTodo) {
+  //         res.json(dbTodo);
+  //       });
+  //   });
 };
