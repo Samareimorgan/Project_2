@@ -135,3 +135,21 @@
 //   <li><a id="logout" href = "#" onclick="logout()">Logout</a></li>
 // //Add Profile Div for InnerHTML or Use Handlebars
 //    <div id="profile"></div>
+
+// Object results from Facebook with user token
+// {
+//   "first_name": "Samantha",
+//   "last_name": "Johnston",
+//   "id": "10157106986155798",
+//   "email": "samareimorgan@gmail.com",
+//   "picture": {
+//     "data": {
+//       "height": 50,
+//       "is_silhouette": false,
+//       "url": "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=10157106986155798&height=50&width=50&ext=1543864240&hash=AeRB7ntHjsyZ-NMD",
+//       "width": 50
+//     }
+//   }
+// }
+
+//in order to obtain infromation from the user
