@@ -60,3 +60,6 @@ process.env
 # next.js build output
 .next
 
+# DS Store
+.DS_Store
+
