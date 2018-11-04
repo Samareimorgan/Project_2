@@ -8,11 +8,17 @@
 // Requiring our Todo model
 var db = require("../models");
 
-require('dotenv').config({path: './process.env'});
+require('dotenv').config({ path: './process.env' });
 
 // Routes
 // =============================================================
 module.exports = function (app) {
+
+  // GET route for API key
+  app.get('/getkey', function (req, res) {
+    res.send(process.env.KEY);
+  });
+
 
 
 
@@ -25,12 +31,12 @@ module.exports = function (app) {
   });
   // POST route new user
   app.post("/api/users", function (req, res) {
-    db.UsersTable.create({
-      //where: {
-      userName: req.body.userName
-      // },
-      //   text: req.body.text,
-      //   complete: req.body.complete,
+    console.log(req.body)
+    db.UsersTable.findOrCreate({
+      where: {
+        id: req.body.id,
+        userName: req.body.userName
+      },
     }).error(function (err) {//error handling
       console.log(err);
     }).then(function (dbTodo) {
@@ -39,17 +45,11 @@ module.exports = function (app) {
   });
 
 
+
+
+
   //RECIPES
   // GET route for getting all of the recipes
-
-  
-  // GET route for API key
-  app.get('/getkey', function (req, res) {
-    res.send(process.env.KEY);
-  })
-
-  // GET route for getting all of the todos
-
   app.get("/api/recipes", function (req, res) {
     db.RecipeTable.findAll({}).then(function (dbRecipes) {
       res.json(dbRecipes);
@@ -58,18 +58,35 @@ module.exports = function (app) {
   // POST route for saving a new recipe
   app.post("/api/recipes", function (req, res) {
     console.log(req.body);
-    db.RecipeTable.create({
+    db.RecipeTable.findOrCreate({
+      where: {
+        id: req.body.id,
+        recipeName: req.body.recipeName,
+        recipeImage: req.body.recipeImage,
+        UsersTableId: req.body.UsersTableId
+      }
 
-      // where: {
-      UsersTableId: req.body.UsersTableId,
-      //   },
-      recipeName: req.body.recipeName
     }).error(function (err) {//error handling
       console.log(err);
     }).then(function (dbTodo) {
       res.json(dbTodo);
     });
   });
+  //STILL NEEDS TO BE WORKED ON!!!!! BELOW
+  // DELETE route for deleting ingredients
+  app.delete("/api/recipes/:id", function (req, res) {
+    db.RecipeTable.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (db) {
+      res.json(db);
+    });
+  });
+
+
+
+
 
 
   //CART
@@ -81,19 +98,25 @@ module.exports = function (app) {
   });
   // POST route new item to cart
   app.post("/api/cart", function (req, res) {
+    console.log(req.body)
     db.CartTable.create({
-    
-      //where: {
       RecipeTableId: req.body.RecipeTableId,
+      UsersTableId: req.body.UsersTableId,
       Ingredients: req.body.Ingredients
-
-      // },
-      //   text: req.body.text,
-      //   complete: req.body.complete,
     }).error(function (err) {//error handling
       console.log(err);
     }).then(function (dbTodo) {
       res.json(dbTodo);
+    });
+  });
+  // DELETE route for deleting ingredients
+  app.delete("/api/cart/:id", function (req, res) {
+    db.CartTable.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (db) {
+      res.json(db);
     });
   });
 
