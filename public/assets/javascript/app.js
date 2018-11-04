@@ -14,6 +14,8 @@ function apiKey() {
 
 
 
+        console.log(key);
+
         // AJAX call for ingredients using the recipe id provided in the first AJAX call
         function ingredientsAPI(recipeId, trueOrFalse) {
             $.ajax({
@@ -27,6 +29,10 @@ function apiKey() {
                     // key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
                     // key: 'cf135f3bf6d990d16c115104b44488e1',
                     // key: 'ee76dd0ee8f48fb5c521a7d48696b8ac',
+                    // key: 'de652b66a0ed9e5c4aefcee2e3f791fd',
+                    // key: '2435834079930c5216d0e6fe69dc6dd8',
+                    // key: '6bebabc39fbf44828bad81f4395acae9',
+                    // key: '6ed7500f281e17d62e8f1dfb424b473c',
                     key: key,
                     rId: recipeId,
                 },
@@ -50,6 +56,18 @@ function apiKey() {
                         });
                     }
 
+
+
+                    //david...this is what you had below...above is using handlebars...which ever way you want to do it
+
+                    // retreival of recipe ingredients
+                    // $(".search-res").on('click', 'a.ingredients', function() {
+                    //     event.preventDefault();
+                    // results.recipe.ingredients.forEach(function (element) {
+                    //     $(".search-res").append("<ul><li class='list-group-item'>" + element + "</li></ul>");
+                    // });
+
+                    // });
                 },
                 error: function (error) {
                     console.log(error);
@@ -73,13 +91,17 @@ function apiKey() {
                 data: {
                     key: key,
                     q: food,
-                    count: 1
+                    count: 3
                 },
                 success: function (result) {
                     var results = JSON.parse(result);
 
                     for (var i = 0; i < results.recipes.length; i++) {
                         $(".car-1").append("<div class='card mx-auto' style='width: 18rem; height: 25rem'><img class='card-img-top' id='recipe_img'  style='height: 15rem;' data-img='" + results.recipes[i].image_url + "' src= '" + results.recipes[i].image_url + "' alt='Card image cap'><div class=card-body'><h5 class='card-title' data-title='" + results.recipes[i].title + "' data-rId='" + results.recipes[i].recipe_id + "' >" + results.recipes[i].title + "</h5><a target='_blank' data-source='" + results.recipes[i].source_url + "' href='" + results.recipes[i].source_url + "' class='card-link mx-auto'>Recipe Link</a><button type='button' data-rid='" + results.recipes[i].recipe_id + "'data-title='" + results.recipes[i].title + "'class='btn btn-primary btn-sm mx-auto mt-2 favSave-btn'  data-source='" + results.recipes[i].source_url + "'  style='display: block'>Save to Favorites</button></div>");
+                        //david...this is what you had below...id think I have it in handlebars as ^ this way
+                        //$(".search-res").append("<div class='card mx-auto' style='width: 18rem; height: 25rem'><img class='card-img-top' id='recipe_img'  style='height: 15rem;' data-img='" + results.recipes[i].image_url + "' src= '" + results.recipes[i].image_url + "' alt='Card image cap'><div class=card-body'><h5 class='card-title' data-title='" + results.recipes[i].title + "' data-rId='" + results.recipes[i].recipe_id + "' >" + results.recipes[i].title + "</h5><a target='_blank' data-source='" + results.recipes[i].source_url + "' href='" + results.recipes[i].source_url + "' class='card-link mx-auto'>Recipe Link</a><button type='button' class='btn btn-primary btn-sm mx-auto mt-2 fav-btn' style='display: block'>Save to Favorites</button></div>");
+                        // $(".card-body").html("<h5 class='card-title' id='recipe_title' data='" + results.recipes[i].recipe_id + "'>" + results.recipes[i].title + "</h5>");
+                        // console.log(results.recipes[i].source_url);
                     }
 
                     results.recipes.forEach(function (element) {
