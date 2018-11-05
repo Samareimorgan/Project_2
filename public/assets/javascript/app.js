@@ -43,8 +43,7 @@ function apiKey() {
 
                     //this is so it will only go to the database if we "favorite" it
                     if (trueOrFalse) {
-                        for (var i = 0; i < results.recipe.ingredients.length; i++) {
-                        }
+                        for (var i = 0; i < results.recipe.ingredients.length; i++) {}
 
                         results.recipe.ingredients.forEach(function (element) {
                             //this adds all ingredients to the shopping cart
@@ -63,16 +62,9 @@ function apiKey() {
                     // retreival of recipe ingredients
                     // $(".search-res").on('click', 'a.ingredients', function() {
                     //     event.preventDefault();
-<<<<<<< HEAD
-                        results.recipe.ingredients.forEach(function (element) {
-                            $(".search-res").append("<ul><li class='list-group-item'>" + element + "</li></ul>");
-                        });                     
-=======
-                    // results.recipe.ingredients.forEach(function (element) {
-                    //     $(".search-res").append("<ul><li class='list-group-item'>" + element + "</li></ul>");
-                    // });
-
->>>>>>> master
+                    results.recipe.ingredients.forEach(function (element) {
+                        $(".search-res").append("<ul><li class='list-group-item'>" + element + "</li></ul>");
+                    });
                     // });
                 },
                 error: function (error) {
@@ -124,7 +116,7 @@ function apiKey() {
         //this is the function of when you favorite a recipe...inserts recipe to favs
         $(".car-1").on('click', 'button.favSave-btn', function () {
             var RecipeDataName = $(this).data("title");
-            var RecipeDataId = $(this).data("rid");
+            var RecipeDataId = $(this).data("rId");
             var RecipeDataImage = $(this).data("source");
             insertRecipe(RecipeDataName, RecipeDataId, userId, RecipeDataImage);
             //TODO: make sure this works!
