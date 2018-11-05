@@ -70,8 +70,7 @@ function apiKey() {
                     //     event.preventDefault();
                         results.recipe.ingredients.forEach(function (element) {
                             $(".search-res").append("<ul><li class='list-group-item'>" + element + "</li></ul>");
-                        });
-                        
+                        });                     
                     // });
                 },
                 error: function (error) {
