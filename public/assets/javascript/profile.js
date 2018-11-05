@@ -12,8 +12,7 @@
         logIn.attr('clicked', "true");
         logIn.html("<a class='nav-link logOut' href='#' id='test'>Log Out</a>");
     }
-    
-    });
+});
 
 
 //Profile page code, still testing//
