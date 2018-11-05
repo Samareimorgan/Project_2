@@ -1,0 +1,227 @@
+<!--Beginning of HTML Body-->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <nav class="navbar navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Welcome
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="home.html">Home</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Cart</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="profile.html">My Profile</a>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</nav>
+<div class="col">
+    <nav class="navbar navbar-expand-lg navbar">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Welcome
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="home.html">Home</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="cart.html">Cart</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="profile.html">My Profile</a>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <span class="navbar-nav mr-auto" id="logIn">
+            <a class="nav-link" href="#" id="test">Log In</a><a class="nav-link" href="#">Sign Up</a>
+
+        </span>
+    </nav>
+
+</div>
+
+
+<div class="container">
+    <h1>Profile Page</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Your Profile Info</h4>
+
+                    <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x200" class="pPic" id="profilePhoto"></a>
+                    <p id="profileName">Name</p>
+                    <p id="profileEmail">Email</p>
+                    <p id="pText">Profile Text Blurb</p>
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4" id="profileDetails">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Edit Details</h4>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Current Password</label>
+                            <input type="password" readonly class="form-control-plaintext" id="staticPassword" value="password">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">New Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email address</label>
+                            <input type="email" readonly class="form-control-plaintext" id="email" placeholder="name@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Profile text (Limited to a certain amount of
+                                characters)</label>
+                            <textarea class="form-control" id="profileText" rows="3" placeholder="My name is Jerry and I love cheetos!"></textarea>
+                        </div>
+                    </form>
+                    Choose a Profile Icon:
+                    <div class="row">
+                        <div class="custom-control custom-radio custom-control-inline">
+
+                            <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline1"><img src="https://via.placeholder.com/50x50"
+                                    id="icon1"></label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2"><img src="https://via.placeholder.com/50x50"
+                                    id="icon2"></label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2"><img src="https://via.placeholder.com/50x50"
+                                    id="icon3"></label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2"><img src="https://via.placeholder.com/50x50"
+                                    id="icon4"></label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2"><img src="https://via.placeholder.com/50x50"
+                                    id="icon5"></label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadioInline2"><img src="https://via.placeholder.com/50x50"
+                                    id="icon6"></label>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <button id="save">Save Changes</button>
+            </div>
+
+        </div>
+
+        <!--Saved Recipes-->
+
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Saved Recipes</h4>
+                    <ul>
+
+                        {{!-- this pulls from the database and puts the info into the recipe-block.handlebars file --}}
+                        {{#each RecipeTable}}
+                        {{>recipe-block}}
+                        {{/each}}
+                    </ul>
+
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.
+
+                    <div class="container-fluid">
+                        <hr>
+                        <h2 class="text-center mb-3">Featured Recipes</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f44242/fff"
+                                        alt="Card image cap">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Card 1</h6>
+                                        <p class="card-text">Title</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/418cf4/fff"
+                                        alt="Card image cap">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Card 2</h6>
+                                        <p class="card-text">Title</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Next Row-->
+    <div class="row">
+        <!--Empty-->
+    </div>
