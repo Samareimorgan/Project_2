@@ -44,6 +44,11 @@ body {
 
 }
 
+.footer {
+    margin: 25px 0 0 0;
+    padding: 0 0 0 0;
+    background-color: palegreen;
+}
 /* Carousel */
 @media (min-width: 768px) {
     /* show 3 items */
@@ -107,30 +112,4 @@ body {
     }
   }
   
-  /* Profile Photo */
-
-  #imageUpload
-{
-    display: none;
-}
-
-#profileImage
-{
-    cursor: pointer;
-}
-
-#profile-container {
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    border-radius: 50%;
-}
-
-#profile-container img {
-    width: 150px;
-    height: 150px;
-}
+  
