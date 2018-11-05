@@ -2,9 +2,9 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "project_2",
+    "database": "project2_db",
     "host": "127.0.0.1",
-    "port": 8889,
+    "port": 3306,
     "dialect": "mysql"
   },
   "test": {
