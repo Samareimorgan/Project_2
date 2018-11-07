@@ -2,6 +2,7 @@ module.exports = function (sequelize, DataTypes) {
   var RecipeTable = sequelize.define("RecipeTable", {
     recipeName: DataTypes.STRING,
     recipeImage: DataTypes.STRING,
+    recipeSource: DataTypes.STRING,
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -14,11 +15,11 @@ module.exports = function (sequelize, DataTypes) {
     // A Post can't be created without an Author due to the foreign key constraint
     RecipeTable.belongsTo(models.UsersTable, {
       foreignKey: {
-        allowNull: false
-      }
+        allowNull: false,
+      },
     });
     RecipeTable.hasMany(models.CartTable, {
-      onDelete: "cascade"
+      onDelete: "cascade",
     });
   };
   return RecipeTable;

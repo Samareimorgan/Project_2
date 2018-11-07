@@ -8,7 +8,9 @@
 // Requiring our Todo model
 var db = require("../models");
 
-require('dotenv').config({ path: './process.env' });
+require('dotenv').config({
+  path: './process.env'
+});
 
 // Routes
 // =============================================================
@@ -18,7 +20,6 @@ module.exports = function (app) {
   app.get('/getkey', function (req, res) {
     res.send(process.env.KEY);
   });
-
 
 
 
@@ -37,7 +38,7 @@ module.exports = function (app) {
         id: req.body.id,
         userName: req.body.userName
       },
-    }).error(function (err) {//error handling
+    }).error(function (err) { //error handling
       console.log(err);
     }).then(function (dbTodo) {
       res.json(dbTodo);
@@ -51,7 +52,15 @@ module.exports = function (app) {
   //RECIPES
   // GET route for getting all of the recipes
   app.get("/api/recipes", function (req, res) {
-    db.RecipeTable.findAll({}).then(function (dbRecipes) {
+    db.RecipeTable.findAll({
+      where: {
+        'UsersTableId': 6
+      },
+      include: [{
+        model: db.UsersTable,
+        required: true
+      }]
+    }).then(function (dbRecipes) {
       res.json(dbRecipes);
     })
   });
@@ -63,22 +72,27 @@ module.exports = function (app) {
         id: req.body.id,
         recipeName: req.body.recipeName,
         recipeImage: req.body.recipeImage,
+        recipeSource: req.body.recipeSource,
         UsersTableId: req.body.UsersTableId
-      }
-
-    }).error(function (err) {//error handling
+      },
+    }).error(function (err) { //error handling
       console.log(err);
     }).then(function (dbTodo) {
       res.json(dbTodo);
     });
   });
-  //STILL NEEDS TO BE WORKED ON!!!!! BELOW
+
   // DELETE route for deleting ingredients
   app.delete("/api/recipes/:id", function (req, res) {
     db.RecipeTable.destroy({
       where: {
         id: req.params.id
-      }
+      },
+      include: [{
+        model: db.CartTable,
+        where: {RecipeTableId: req.params.id},
+        required: true
+      }]
     }).then(function (db) {
       res.json(db);
     });
@@ -92,18 +106,43 @@ module.exports = function (app) {
   //CART
   // GET route for getting all of the content for the cart
   app.get("/api/cart", function (req, res) {
-    db.CartTable.findAll({}).then(function (dbUsers) {
+    // Association of CartTable and UsersTable
+    // db.CartTable.findAll({
+    //   include: [{
+    //     model: db.UsersTable,
+    //     where: {
+    //       UsersTableId: db.Sequelize.col('UsersTable.id = 6')
+    //     }
+    //   }]
+    // }).then(function (dbUsers) {
+    //   res.json(dbUsers);
+    // })
+
+    db.CartTable.findAll({
+      where: {
+        'UsersTableId': 7
+      },
+      include: [{
+        model: db.UsersTable,
+        required: true
+      }]
+    }).then(function (dbUsers) {
+      console.log("+++++++++++" , dbUsers);
       res.json(dbUsers);
     })
   });
+  // db.CartTable.findAll({}).then(function (dbUsers) {
+  //   res.json(dbUsers);
+  // })
+  // });
   // POST route new item to cart
   app.post("/api/cart", function (req, res) {
     console.log(req.body)
     db.CartTable.create({
       RecipeTableId: req.body.RecipeTableId,
-      UsersTableId: req.body.UsersTableId,
+      //UsersTableId: req.body.UsersTableId,
       Ingredients: req.body.Ingredients
-    }).error(function (err) {//error handling
+    }).error(function (err) { //error handling
       console.log(err);
     }).then(function (dbTodo) {
       res.json(dbTodo);
@@ -114,11 +153,9 @@ module.exports = function (app) {
     db.CartTable.destroy({
       where: {
         id: req.params.id
-      }
+      },
     }).then(function (db) {
       res.json(db);
     });
   });
-
 };
-
