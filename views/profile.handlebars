@@ -2,6 +2,7 @@
 
 <div class="col">
   <nav class="navbar navbar-expand-lg navbar">
+<<<<<<< HEAD
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -33,10 +34,77 @@
 
     </span>
   </nav>
+=======
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Welcome
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/">Home</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="cart">Cart</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="profile">My Profile</a>
+
+
+          </div>
+        </li>
+      </ul>
+    </div>
+    <span class="navbar-nav mr-auto" id="logIn">
+      <a class="nav-link" href="#" id="test">Log In</a><a class="nav-link" href="#">Sign Up</a>
+
+    </span>
+  </nav>
 
 </div>
 
 
+<div class="container">
+
+  <!--Jumbotron-->
+  <div class="jumbotron">
+
+  </div>
+</div>
+<br>
+<div class="container exclude">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card proInfo">
+        <div class="card-body">
+          <h4>Your Profile Info</h4>
+
+          <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x200" class="pPic" id="profilePhoto"></a>
+          <p id="profileName">Name</p>
+          <p id="profileEmail">Email</p>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+>>>>>>> master
+
+    <!--Saved Recipes-->
+
+    <div class="col-md-9">
+      <div class="card saveRecipe">
+        <div class="card-body">
+
+<<<<<<< HEAD
 <div class="container">
 
   <!--Jumbotron-->
@@ -83,6 +151,20 @@
           </ul>
 
 
+=======
+          <h1>Saved Recipes</h1>
+          <p>View your favorite recipes here! You can also edit or delete your saved list.</p>
+
+          <ul>
+
+            {{!-- this pulls from the database and puts the info into the recipe-block.handlebars file --}}
+            {{#each RecipeTable}}
+            {{>recipe-block}}
+            {{/each}}
+          </ul>
+
+
+>>>>>>> master
 
 
           <!--Featured Recipes-->
@@ -91,6 +173,7 @@
             <h2 class="text-center mb-3">Featured Recipes</h2>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner row w-100 mx-auto">
+<<<<<<< HEAD
                 
               </div>
               <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -111,12 +194,106 @@
 
 <!--Footer-->
 
+=======
+                <div class="carousel-item col-md-4 active">
+                  <div class="card">
+                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f44242/fff" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card 1</h4>
+                      <p class="card-text">Text</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item col-md-4">
+                  <div class="card">
+                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/418cf4/fff" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card 2</h4>
+                      <p class="card-text">Text</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item col-md-4">
+                  <div class="card">
+                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/3ed846/fff" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card 3</h4>
+                      <p class="card-text">Text</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item col-md-4">
+                  <div class="card">
+                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/42ebf4/fff" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card 4</h4>
+                      <p class="card-text">Text</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item col-md-4">
+                  <div class="card">
+                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f49b41/fff" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card 5</h4>
+                      <p class="card-text">Text</p>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item col-md-4">
+                  <div class="card">
+                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f4f141/fff" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card 6</h4>
+                      <p class="card-text">Text</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item col-md-4">
+                  <div class="card">
+                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/8e41f4/fff" alt="Card image cap">
+                    <div class="card-body">
+                      <h4 class="card-title">Card 7</h4>
+                      <p class="card-text">Text</p>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Footer-->
+
+>>>>>>> master
 <div class="card footer">
   <div class="card-body">
     <footer> &copy; Team Spicy
       <br>
+<<<<<<< HEAD
       <a href="terms.html">Terms & Conditions</a> |
       <a href="privacy.html">Privacy Policy</a>
+=======
+      <a href="/public/term.html">Terms & Conditions</a> | <a href="/public/privacy.html">Privacy Policy</a>
+>>>>>>> master
     </footer>
   </div>
 </div>

@@ -218,10 +218,10 @@ function apiKey() {
         //as of right now this is passing in the username luke and id variables into our database
         //it will create one if it doesn't exist or will update the existing one with respective id
         //YOU DO NOT NEED TO CHANGE ANY OF THIS BELOW...just the variables at the top need to have the info from facebook login
-        enterUser({
-            userName: userName,
-            id: userId
-        });
+        // enterUser({
+        //     userName: userName,
+        //     id: userId
+        // });
     });
 }
 
