@@ -3,9 +3,6 @@ function apiKey() {
         console.log(key);
 
 
-        //THIS IS WHERE WE WILL PUT IN THE CODE TO GET THE UNIQUE USER ID and userName...SAVED GLOBALLY^
-        //so we can use it throughout this js file as the userId variable...
-        //you will call the create user function at the bottom of the page...if the user already exists...it won't duplicate
         var userId = 6;
         var userName = "Luke";
 
@@ -45,7 +42,6 @@ function apiKey() {
 
                         results.recipe.ingredients.forEach(function (element) {
                             //this adds all ingredients to the shopping cart
-                            console.log("ppppppppppp")
                             ingredientsToCart({
                                 Ingredients: element,
                                 RecipeTableId: recipeId,
@@ -54,23 +50,6 @@ function apiKey() {
                         });
                     } 
                     else {
-
-                    //david...this is what you had below...above is using handlebars...which ever way you want to do it
-<<<<<<< HEAD
-=======
-
-                    // retreival of recipe ingredients
-                    // $(".search-res").on('click', 'a.ingredients', function() {
-                    //     event.preventDefault();
->>>>>>> b95bc60f9a093211e334ea0ee34fed2ffa25c893
-                    // results.recipe.ingredients.forEach(function (element) {
-                    //     $(".accordion").find("ul#" + ingredients).after("<li class='list-group-item'>" + element + "</li>");
-                    // });
-
-<<<<<<< HEAD
-
-                    //console.log("========= ", recipeResult)
-                    
 
                         let testHTML = "";
                         for (let i = 0; i < results.recipe.ingredients.length; i++) {
@@ -109,13 +88,8 @@ function apiKey() {
                     
                         $(".accordion").find("button#" + num).on("click", function () {
                             $(".item" + num).collapse("toggle");
-                            //console.log(header++);
-
                         });
                     }  
-=======
-                    // });
->>>>>>> b95bc60f9a093211e334ea0ee34fed2ffa25c893
                 },
                 error: function (error) {
                     console.log(error);
@@ -183,7 +157,6 @@ function apiKey() {
             deleteIngredient(currentIngredientId)
         })
 
-<<<<<<< HEAD
         //delete on click in shoppling list html
         $(".delete-recipe").click(function () {
             var currentRecipeId = $(this).data("id");
@@ -195,13 +168,6 @@ function apiKey() {
             $.post("/api/users", userData);
             console.log("pushed user data");
         }
-=======
-        // // A function for creating a user
-        // function enterUser(userData) {
-        //     $.post("/api/users", userData);
-        //     console.log("pushed user data");
-        // }
->>>>>>> b95bc60f9a093211e334ea0ee34fed2ffa25c893
 
         // This function inserts a new recipe into our database 
         function insertRecipe(recipeDataName, recipe, userId, recipeSource, recipeImage) {
@@ -254,10 +220,10 @@ function apiKey() {
         //as of right now this is passing in the username luke and id variables into our database
         //it will create one if it doesn't exist or will update the existing one with respective id
         //YOU DO NOT NEED TO CHANGE ANY OF THIS BELOW...just the variables at the top need to have the info from facebook login
-        // enterUser({
-        //     userName: userName,
-        //     id: userId
-        // });
+        enterUser({
+            userName: userName,
+            id: userId
+        });
     });
 }
 
