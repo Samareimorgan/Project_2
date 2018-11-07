@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   var CartTable = sequelize.define("CartTable", {
-    Ingredients: DataTypes.STRING
+    Ingredients: DataTypes.STRING,
   });
 
   CartTable.associate = function (models) {

@@ -106,18 +106,6 @@ module.exports = function (app) {
   //CART
   // GET route for getting all of the content for the cart
   app.get("/api/cart", function (req, res) {
-    // Association of CartTable and UsersTable
-    // db.CartTable.findAll({
-    //   include: [{
-    //     model: db.UsersTable,
-    //     where: {
-    //       UsersTableId: db.Sequelize.col('UsersTable.id = 6')
-    //     }
-    //   }]
-    // }).then(function (dbUsers) {
-    //   res.json(dbUsers);
-    // })
-
     db.CartTable.findAll({
       where: {
         'UsersTableId': 7
@@ -127,20 +115,14 @@ module.exports = function (app) {
         required: true
       }]
     }).then(function (dbUsers) {
-      console.log("+++++++++++" , dbUsers);
       res.json(dbUsers);
     })
   });
-  // db.CartTable.findAll({}).then(function (dbUsers) {
-  //   res.json(dbUsers);
-  // })
-  // });
   // POST route new item to cart
   app.post("/api/cart", function (req, res) {
     console.log(req.body)
     db.CartTable.create({
       RecipeTableId: req.body.RecipeTableId,
-      //UsersTableId: req.body.UsersTableId,
       Ingredients: req.body.Ingredients
     }).error(function (err) { //error handling
       console.log(err);
