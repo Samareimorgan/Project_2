@@ -39,6 +39,7 @@ function renderProfileList(req, res) {
 //this function allows handlebars to display the database variables
 function renderShoppingList(req, res) {
   db.CartTable.findAll({}).then(function (cartInfoToHTML) {
+    console.log("============= ", cartInfoToHTML);
     res.render("shoppinglist", { CartTable: cartInfoToHTML });
   })
 };

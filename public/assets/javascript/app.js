@@ -7,17 +7,14 @@ function apiKey() {
         //so we can use it throughout this js file as the userId variable...
         //you will call the create user function at the bottom of the page...if the user already exists...it won't duplicate
         var userId = 6;
-        var userName = "luke";
-
-
-
-
+        var userName = "Luke";
 
 
         console.log(key);
 
+
         // AJAX call for ingredients using the recipe id provided in the first AJAX call
-        function ingredientsAPI(recipeId, trueOrFalse) {
+        function ingredientsAPI(recipeId, trueOrFalse, recipeResult, num) {
             $.ajax({
                 url: 'https://www.food2fork.com/api/get',
                 type: 'GET',
@@ -39,6 +36,7 @@ function apiKey() {
                 success: function (result) {
                     var results = JSON.parse(result);
                     // retreival of recipe ingredients as array
+                    // console.log("RESULTS: ", results);
                     console.log(results.recipe.ingredients);
 
                     //this is so it will only go to the database if we "favorite" it
@@ -47,25 +45,66 @@ function apiKey() {
 
                         results.recipe.ingredients.forEach(function (element) {
                             //this adds all ingredients to the shopping cart
+                            console.log("ppppppppppp")
                             ingredientsToCart({
                                 Ingredients: element,
                                 RecipeTableId: recipeId,
                                 UsersTableId: userId
                             });
                         });
-                    }
-
-
+                    } 
+                    else {
 
                     //david...this is what you had below...above is using handlebars...which ever way you want to do it
-
-                    // retreival of recipe ingredients
-                    // $(".search-res").on('click', 'a.ingredients', function() {
-                    //     event.preventDefault();
-                    results.recipe.ingredients.forEach(function (element) {
-                        $(".search-res").append("<ul><li class='list-group-item'>" + element + "</li></ul>");
-                    });
+                    // results.recipe.ingredients.forEach(function (element) {
+                    //     $(".accordion").find("ul#" + ingredients).after("<li class='list-group-item'>" + element + "</li>");
                     // });
+
+
+                    //console.log("========= ", recipeResult)
+                    
+
+                        let testHTML = "";
+                        for (let i = 0; i < results.recipe.ingredients.length; i++) {
+                            testHTML += `<li>${results.recipe.ingredients[i]}</li>`;
+                        }
+
+                        console.log("recipe result:", recipeResult);
+
+                        $(".accordion").append(`
+                            <div class='card'>
+                                <div class='card-header' id=${num}> 
+                                    <h5 class='mb-0'> 
+                                        <button class='btn btn-link collapsed' id=${num} type='button' data-toggle='collapse' data-target='#${recipeResult.recipe_id} aria-expanded='true' aria-controls='${recipeResult.recipe_id}'>
+                                            ${recipeResult.title}
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div class='collapse item${num}' id=${recipeResult.recipe_id} aria-labelledby=${num} data-parent='#accordionExample'> 
+                                    <img data-img=${recipeResult.image_url} src=${recipeResult.image_url} class='rounded mx-auto mt-2 d-block' alt='recipe_img' style='height: 10rem; width: 10rem'> 
+                                    <div class='card-body'> 
+                                        <a target='_blank' data-source=${recipeResult.source_url} href=${recipeResult.source_url} class='card-link mx-auto'>
+                                            Recipe Link
+                                        </a> 
+                                        <h6>Ingredients:</h6>
+                                        <ul id=${num}>${testHTML}</ul> 
+                                        <button type='button' data-rid=${recipeResult.recipe_id} data-img=${recipeResult.image_url} data-title=${recipeResult.title} class='btn btn-primary btn-sm mx-auto mt-2 favSave-btn'  data-source=${recipeResult.source_url} style='display: block'>
+                                            Save to Favorites
+                                        </button> 
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+
+                    
+
+                    
+                        $(".accordion").find("button#" + num).on("click", function () {
+                            $(".item" + num).collapse("toggle");
+                            //console.log(header++);
+
+                        });
+                    }  
                 },
                 error: function (error) {
                     console.log(error);
@@ -73,7 +112,7 @@ function apiKey() {
             });
         }
 
-        $("#search").on('click', function () {
+        $(document).on('click', '#search', function () {
             event.preventDefault();
 
             // retrieval of input from user and formatted for API url
@@ -94,17 +133,11 @@ function apiKey() {
                 success: function (result) {
                     var results = JSON.parse(result);
 
-                    for (var i = 0; i < results.recipes.length; i++) {
-                        $(".car-1").append("<div class='card mx-auto' style='width: 18rem; height: 25rem'><img class='card-img-top' id='recipe_img'  style='height: 15rem;' data-img='" + results.recipes[i].image_url + "' src= '" + results.recipes[i].image_url + "' alt='Card image cap'><div class=card-body'><h5 class='card-title' data-title='" + results.recipes[i].title + "' data-rId='" + results.recipes[i].recipe_id + "' >" + results.recipes[i].title + "</h5><a target='_blank' data-source='" + results.recipes[i].source_url + "' href='" + results.recipes[i].source_url + "' class='card-link mx-auto'>Recipe Link</a><button type='button' data-rid='" + results.recipes[i].recipe_id + "'data-title='" + results.recipes[i].title + "'class='btn btn-primary btn-sm mx-auto mt-2 favSave-btn'  data-source='" + results.recipes[i].source_url + "'  style='display: block'>Save to Favorites</button></div>");
-                        //david...this is what you had below...id think I have it in handlebars as ^ this way
-                        //$(".search-res").append("<div class='card mx-auto' style='width: 18rem; height: 25rem'><img class='card-img-top' id='recipe_img'  style='height: 15rem;' data-img='" + results.recipes[i].image_url + "' src= '" + results.recipes[i].image_url + "' alt='Card image cap'><div class=card-body'><h5 class='card-title' data-title='" + results.recipes[i].title + "' data-rId='" + results.recipes[i].recipe_id + "' >" + results.recipes[i].title + "</h5><a target='_blank' data-source='" + results.recipes[i].source_url + "' href='" + results.recipes[i].source_url + "' class='card-link mx-auto'>Recipe Link</a><button type='button' class='btn btn-primary btn-sm mx-auto mt-2 fav-btn' style='display: block'>Save to Favorites</button></div>");
-                        // $(".card-body").html("<h5 class='card-title' id='recipe_title' data='" + results.recipes[i].recipe_id + "'>" + results.recipes[i].title + "</h5>");
-                        // console.log(results.recipes[i].source_url);
-                    }
-
-                    results.recipes.forEach(function (element) {
+                    console.log(results.recipes);
+                    results.recipes.forEach(function (element, i) {
                         //TODO: make sure this works!
-                        ingredientsAPI(element.recipe_id, false);
+                        ingredientsAPI(element.recipe_id, false, results.recipes[i], i);
+
                     });
                 },
                 error: function (error) {
@@ -113,20 +146,36 @@ function apiKey() {
             });
         });
 
+
+
         //this is the function of when you favorite a recipe...inserts recipe to favs
-        $(".car-1").on('click', 'button.favSave-btn', function () {
+        $(document).on('click', 'button.favSave-btn', function () {
             var RecipeDataName = $(this).data("title");
-            var RecipeDataId = $(this).data("rId");
-            var RecipeDataImage = $(this).data("source");
-            insertRecipe(RecipeDataName, RecipeDataId, userId, RecipeDataImage);
+            var RecipeDataId = $(this).data("rid");
+            var RecipeDataSource = $(this).data("source");
+            var RecipeDataImage = $(this).data("img");
+            console.log(RecipeDataImage);
+            insertRecipe(RecipeDataName, RecipeDataId, userId, RecipeDataSource, RecipeDataImage);
             //TODO: make sure this works!
+
+            $(this).remove();
+            $(".card-body").append("<p style='color: red'>Added to Favorites!</p>");
             ingredientsAPI(RecipeDataId, true);
         });
+
+        
+
 
         //delete on click in shoppling list html
         $(".delete-ingredient").click(function () {
             var currentIngredientId = $(this).data("id");
             deleteIngredient(currentIngredientId)
+        })
+
+        //delete on click in shoppling list html
+        $(".delete-recipe").click(function () {
+            var currentRecipeId = $(this).data("id");
+            deleteRecipe(currentRecipeId)
         })
 
         // A function for creating a user
@@ -136,10 +185,11 @@ function apiKey() {
         }
 
         // This function inserts a new recipe into our database 
-        function insertRecipe(recipeDataName, recipe, userId, recipeImage) {
+        function insertRecipe(recipeDataName, recipe, userId, recipeSource, recipeImage) {
             console.log("insertrecipe working");
             var recipesArray = {
                 recipeName: recipeDataName,
+                recipeSource: recipeSource,
                 recipeImage: recipeImage,
                 id: recipe,
                 UsersTableId: userId
@@ -165,12 +215,24 @@ function apiKey() {
                     location.reload();
                 }
             );
+        }
 
+        function deleteRecipe(id) {
+            $.ajax({
+                method: "DELETE",
+                url: "/api/recipes/" + id
+            }).then(
+                function () {
+                    console.log("recipe deleted id: ", id);
+                    // Reload the page to get the updated list
+                    location.reload();
+                }
+            );
         }
 
 
         //INFO FOR THE BELOW FUNCTION
-        //as of right now this is passing in the username luke and id 2 variables into our database
+        //as of right now this is passing in the username luke and id variables into our database
         //it will create one if it doesn't exist or will update the existing one with respective id
         //YOU DO NOT NEED TO CHANGE ANY OF THIS BELOW...just the variables at the top need to have the info from facebook login
         enterUser({
