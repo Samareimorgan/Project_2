@@ -24,7 +24,7 @@ function apiKey() {
                 data: {
                     // key: '70c8aea98fcf8a18462e897015698b5f',
                     // key: '06cd133b4e157f0b15c89a142ef9a5fe',
-                    // key: '1b8bca77165417483de095aec76fb259',
+                     //key: '1b8bca77165417483de095aec76fb259',
                     // key: '6672f623c4ac7e28e35b289c7e8fa482',
                     // key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
                     // key: 'cf135f3bf6d990d16c115104b44488e1',
@@ -91,7 +91,7 @@ function apiKey() {
                 data: {
                     key: key,
                     q: food,
-                    count: 3
+                    count: 5
                 },
                 success: function (result) {
                     var results = JSON.parse(result);

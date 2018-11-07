@@ -1,8 +1,20 @@
 body {
-    background: palegreen;
+    background: white;
     color: darkolivegreen;
     align-content: center;
     text-align: center;
+    background-image: url('../images/retina_wood.png');
+}
+
+a {
+    color: #663300;
+}
+a:hover {
+    color: darkslategray;
+}
+
+a .dropdown-menu {
+    color: #663300;
 }
 
 .left {
@@ -18,7 +30,17 @@ body {
     align-content: center;
     padding: 0 0 0 0;
     margin: 0 0 0 85px;
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
     
+}
+
+.container-fluid {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 
 #carousel {
@@ -47,8 +69,38 @@ body {
 .footer {
     margin: 25px 0 0 0;
     padding: 0 0 0 0;
-    background-color: palegreen;
+    background-image: url('../images/retina_wood.png');
+    
 }
+
+.jumbotron { 
+    background-image: url(../images/tart.jpg);
+    padding: 17rem 0 0 0;
+    margin: 0 0 0 0;
+    background-size: 90%;
+}
+
+h4, h2, h1 {
+    font-family: 'Euphoria Script', cursive;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.proInfo, .saveRecipe, .shoList {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    
+}
+.exclude {
+    background-color: transparent;
+}
+
+.dropdown-menu {
+    background-color: #99cc99;
+}
+
 /* Carousel */
 @media (min-width: 768px) {
     /* show 3 items */
