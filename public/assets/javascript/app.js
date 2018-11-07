@@ -21,7 +21,7 @@ function apiKey() {
                 data: {
                     // key: '70c8aea98fcf8a18462e897015698b5f',
                     // key: '06cd133b4e157f0b15c89a142ef9a5fe',
-                    // key: '1b8bca77165417483de095aec76fb259',
+                     //key: '1b8bca77165417483de095aec76fb259',
                     // key: '6672f623c4ac7e28e35b289c7e8fa482',
                     // key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
                     // key: 'cf135f3bf6d990d16c115104b44488e1',
@@ -56,10 +56,18 @@ function apiKey() {
                     else {
 
                     //david...this is what you had below...above is using handlebars...which ever way you want to do it
+<<<<<<< HEAD
+=======
+
+                    // retreival of recipe ingredients
+                    // $(".search-res").on('click', 'a.ingredients', function() {
+                    //     event.preventDefault();
+>>>>>>> b95bc60f9a093211e334ea0ee34fed2ffa25c893
                     // results.recipe.ingredients.forEach(function (element) {
                     //     $(".accordion").find("ul#" + ingredients).after("<li class='list-group-item'>" + element + "</li>");
                     // });
 
+<<<<<<< HEAD
 
                     //console.log("========= ", recipeResult)
                     
@@ -105,6 +113,9 @@ function apiKey() {
 
                         });
                     }  
+=======
+                    // });
+>>>>>>> b95bc60f9a093211e334ea0ee34fed2ffa25c893
                 },
                 error: function (error) {
                     console.log(error);
@@ -128,7 +139,7 @@ function apiKey() {
                 data: {
                     key: key,
                     q: food,
-                    count: 3
+                    count: 5
                 },
                 success: function (result) {
                     var results = JSON.parse(result);
@@ -172,6 +183,7 @@ function apiKey() {
             deleteIngredient(currentIngredientId)
         })
 
+<<<<<<< HEAD
         //delete on click in shoppling list html
         $(".delete-recipe").click(function () {
             var currentRecipeId = $(this).data("id");
@@ -183,6 +195,13 @@ function apiKey() {
             $.post("/api/users", userData);
             console.log("pushed user data");
         }
+=======
+        // // A function for creating a user
+        // function enterUser(userData) {
+        //     $.post("/api/users", userData);
+        //     console.log("pushed user data");
+        // }
+>>>>>>> b95bc60f9a093211e334ea0ee34fed2ffa25c893
 
         // This function inserts a new recipe into our database 
         function insertRecipe(recipeDataName, recipe, userId, recipeSource, recipeImage) {
@@ -235,10 +254,10 @@ function apiKey() {
         //as of right now this is passing in the username luke and id variables into our database
         //it will create one if it doesn't exist or will update the existing one with respective id
         //YOU DO NOT NEED TO CHANGE ANY OF THIS BELOW...just the variables at the top need to have the info from facebook login
-        enterUser({
-            userName: userName,
-            id: userId
-        });
+        // enterUser({
+        //     userName: userName,
+        //     id: userId
+        // });
     });
 }
 
