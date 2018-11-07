@@ -63,16 +63,10 @@ function apiKey() {
                     // retreival of recipe ingredients
                     // $(".search-res").on('click', 'a.ingredients', function() {
                     //     event.preventDefault();
-<<<<<<< HEAD
-                        results.recipe.ingredients.forEach(function (element) {
-                            $(".search-res").append("<ul><li class='list-group-item'>" + element + "</li></ul>");
-                        });                     
-=======
                     // results.recipe.ingredients.forEach(function (element) {
                     //     $(".search-res").append("<ul><li class='list-group-item'>" + element + "</li></ul>");
                     // });
 
->>>>>>> master
                     // });
                 },
                 error: function (error) {
@@ -137,11 +131,11 @@ function apiKey() {
             deleteIngredient(currentIngredientId)
         })
 
-        // A function for creating a user
-        function enterUser(userData) {
-            $.post("/api/users", userData);
-            console.log("pushed user data");
-        }
+        // // A function for creating a user
+        // function enterUser(userData) {
+        //     $.post("/api/users", userData);
+        //     console.log("pushed user data");
+        // }
 
         // This function inserts a new recipe into our database 
         function insertRecipe(recipeDataName, recipe, userId, recipeImage) {
@@ -181,10 +175,10 @@ function apiKey() {
         //as of right now this is passing in the username luke and id 2 variables into our database
         //it will create one if it doesn't exist or will update the existing one with respective id
         //YOU DO NOT NEED TO CHANGE ANY OF THIS BELOW...just the variables at the top need to have the info from facebook login
-        enterUser({
-            userName: userName,
-            id: userId
-        });
+        // enterUser({
+        //     userName: userName,
+        //     id: userId
+        // });
     });
 }
 
