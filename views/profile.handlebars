@@ -2,7 +2,6 @@
 
 <div class="col">
   <nav class="navbar navbar-expand-lg navbar">
-
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -51,18 +50,16 @@
         <div class="card-body">
           <h4>Your Profile Info</h4>
 
-          <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x200" class="pPic" id="profilePhoto"></a>
+          <img src="https://via.placeholder.com/200x200" class="pPic" id="profilePhoto">
           <p id="profileName">Name</p>
           <p id="profileEmail">Email</p>
-
-
-
-
 
         </div>
       </div>
     </div>
 
+
+<div class="container">
 
     <!--Saved Recipes-->
 
@@ -75,14 +72,14 @@
 
           <ul>
 
-            {{!-- this pulls from the database and puts the info into the recipe-block.handlebars file --}}
-            {{#each RecipeTable}}
-            {{>recipe-block}}
+            {{!-- this pulls from the database and puts the info into the recipe-block.handlebars file --}} {{#each RecipeTable}} {{>recipe-block}}
             {{/each}}
           </ul>
 
-
-
+      </div>
+     </div>
+    </div>
+    
 
           <!--Featured Recipes-->
           <div class="container-fluid exclude">
@@ -90,75 +87,7 @@
             <h2 class="text-center mb-3">Featured Recipes</h2>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner row w-100 mx-auto">
-                <div class="carousel-item col-md-4 active">
-                  <div class="card">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f44242/fff" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card 1</h4>
-                      <p class="card-text">Text</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item col-md-4">
-                  <div class="card">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/418cf4/fff" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card 2</h4>
-                      <p class="card-text">Text</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item col-md-4">
-                  <div class="card">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/3ed846/fff" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card 3</h4>
-                      <p class="card-text">Text</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item col-md-4">
-                  <div class="card">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/42ebf4/fff" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card 4</h4>
-                      <p class="card-text">Text</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item col-md-4">
-                  <div class="card">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f49b41/fff" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card 5</h4>
-                      <p class="card-text">Text</p>
-
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item col-md-4">
-                  <div class="card">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/f4f141/fff" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card 6</h4>
-                      <p class="card-text">Text</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item col-md-4">
-                  <div class="card">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/800x600/8e41f4/fff" alt="Card image cap">
-                    <div class="card-body">
-                      <h4 class="card-title">Card 7</h4>
-                      <p class="card-text">Text</p>
-
-                    </div>
-                  </div>
-                </div>
+                
               </div>
               <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -177,6 +106,7 @@
 </div>
 
 <!--Footer-->
+
 
 <div class="card footer">
   <div class="card-body">
