@@ -40,12 +40,13 @@ function apiKey() {
                     if (trueOrFalse) {
                         for (var i = 0; i < results.recipe.ingredients.length; i++) {}
 
+                        // console.log(results.recipe.title);
+
                         results.recipe.ingredients.forEach(function (element) {
                             //this adds all ingredients to the shopping cart
                             ingredientsToCart({
                                 Ingredients: element,
                                 RecipeTableId: recipeId,
-                                UsersTableId: userId
                             });
                         });
                     } 
@@ -56,7 +57,7 @@ function apiKey() {
                             testHTML += `<li>${results.recipe.ingredients[i]}</li>`;
                         }
 
-                        console.log("recipe result:", recipeResult);
+                        // console.log("recipe result:", recipeResult);
 
                         $(".accordion").append(`
                             <div class='card'>
@@ -84,8 +85,6 @@ function apiKey() {
                         `);
 
                     
-
-                    
                         $(".accordion").find("button#" + num).on("click", function () {
                             $(".item" + num).collapse("toggle");
                         });
@@ -99,6 +98,8 @@ function apiKey() {
 
         $(document).on('click', '#search', function () {
             event.preventDefault();
+
+            $(".accordion").empty();
 
             // retrieval of input from user and formatted for API url
             var food = $("#inlineFormInputName2").val().trim().replace(/\s/g, ',');
@@ -118,11 +119,11 @@ function apiKey() {
                 success: function (result) {
                     var results = JSON.parse(result);
 
-                    console.log(results.recipes);
-                    results.recipes.forEach(function (element, i) {
-                        //TODO: make sure this works!
-                        ingredientsAPI(element.recipe_id, false, results.recipes[i], i);
+                    // console.log(results.recipes);
 
+                    results.recipes.forEach(function (element, i) {
+                        // console.log(results.recipes[i].title);
+                        ingredientsAPI(element.recipe_id, false, results.recipes[i], i);
                     });
                 },
                 error: function (error) {
@@ -139,16 +140,13 @@ function apiKey() {
             var RecipeDataId = $(this).data("rid");
             var RecipeDataSource = $(this).data("source");
             var RecipeDataImage = $(this).data("img");
-            console.log(RecipeDataImage);
             insertRecipe(RecipeDataName, RecipeDataId, userId, RecipeDataSource, RecipeDataImage);
-            //TODO: make sure this works!
 
-            $(this).remove();
-            $(".card-body").append("<p style='color: red'>Added to Favorites!</p>");
+
+            $(this).replaceWith("<p style='color: red'>Added to Favorites!</p><p style='color: red'>Ingredients added to shopping list</p>");
             ingredientsAPI(RecipeDataId, true);
         });
 
-        
 
 
         //delete on click in shoppling list html
