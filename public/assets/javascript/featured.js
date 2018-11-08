@@ -4,7 +4,7 @@ $("document").ready(function () {
 
     $.get("/getkey", function (key) {
 
-        console.log(key);
+        // console.log(key);
 
 
         // AJAX call for ingredients using the recipe id provided in the first AJAX call

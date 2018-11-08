@@ -57,9 +57,9 @@ function enterUser(userData) {
 function buildProfile(userName, userEmail, userPic) {
 console.log("build profile should be working " + userName, +" " + userEmail + " " + userPic);
 
-$("#profileName").html(userName);
-$("#profileEmail").html(userEmail);
-$("#profilePhoto").attr("src", userPic);
+// $("#profileName").html(`<h3>${userName}</h3>`);
+// $("#profileEmail").html(`<h3>${userEmail}</h3>`);
+// $("#profilePhoto").attr("src", userPic);
 };
 
 

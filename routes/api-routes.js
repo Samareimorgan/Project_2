@@ -40,8 +40,8 @@ module.exports = function (app) {
       },
     }).error(function (err) { //error handling
       console.log(err);
-    }).then(function (dbTodo) {
-      res.json(dbTodo);
+    }).then(function (dbUser) {
+      res.json(dbUser);
     });
   });
 
