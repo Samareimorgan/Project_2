@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--Beginning of HTML Body-->
 
 <div class="col">
@@ -21,17 +22,82 @@
             <a class="dropdown-item" href="cart">Cart</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="profile">My Profile</a>
+=======
+
+    <body>
+        <!-- Facebook Javascript SDK-->
+
+    <script>
+        window.fbAsyncInit = function () {
+>>>>>>> master
+
+            FB.init({
+                appId: '290716314893480',
+                cookie: true,
+                xfbml: true,
+                version: 'v3.2'
+            });
+
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+                facebookAPI();
+
+            });
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+<!--Beginning of HTML Body-->
+
+<div class="col">
+    <nav class="navbar navbar-expand-lg navbar">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Welcome
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/">Home</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="cart">Shopping List</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="profile">My Profile</a>
 
 
-          </div>
-        </li>
-      </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+<<<<<<< HEAD
+      </div>
     </div>
-    <span class="navbar-nav mr-auto" id="logIn">
-      <a class="nav-link" href="#" id="test">Log In</a><a class="nav-link" href="#">Sign Up</a>
 
-    </span>
-  </nav>
+
+    <!--Saved Recipes-->
+=======
+                <span class="navbar-nav mr-auto" id="logIn">
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"
+                        data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false">
+                        </div>
+                    
+                </span>
+    </nav>
 
 </div>
 
@@ -39,11 +105,12 @@
 <div class="container">
 
   <!--Jumbotron-->
-  <div class="jumbotron">
+  <div class="jumbotron col-md-12">
 
   </div>
 </div>
 <br>
+
 <div class="container exclude">
   <div class="row">
     <div class="col-md-3">
@@ -51,20 +118,17 @@
         <div class="card-body">
           <h4>Your Profile Info</h4>
 
-          <a href="https://placeholder.com"><img src="https://via.placeholder.com/200x200" class="pPic" id="profilePhoto"></a>
+          <img src="https://via.placeholder.com/200x200" class="pPic" id="profilePhoto">
           <p id="profileName">Name</p>
           <p id="profileEmail">Email</p>
-
-
-
-
 
         </div>
       </div>
     </div>
 
-
-    <!--Saved Recipes-->
+     <!--Saved Recipes-->
+    <div class="container">
+>>>>>>> master
 
     <div class="col-md-9">
       <div class="card saveRecipe">
@@ -75,6 +139,7 @@
 
           <ul>
 
+<<<<<<< HEAD
             {{!-- this pulls from the database and puts the info into the recipe-block.handlebars file --}}
             {{#each RecipeTable}}
             {{>recipe-block}}
@@ -83,6 +148,16 @@
 
 
 
+=======
+            {{!-- this pulls from the database and puts the info into the recipe-block.handlebars file --}} {{#each RecipeTable}} {{>recipe-block}}
+            {{/each}}
+          </ul>
+
+      </div>
+     </div>
+    </div>
+    
+>>>>>>> master
 
           <!--Featured Recipes-->
           <div class="container-fluid exclude">
@@ -105,9 +180,8 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 
+<<<<<<< HEAD
 <!--Footer-->
 
 <div class="card footer">
@@ -118,3 +192,17 @@
     </footer>
   </div>
 </div>
+=======
+
+<!--Footer-->
+
+<div class="card footer">
+    <div class="card-body">
+      <footer> &copy; Team Spicy
+          <br>
+          <a href="term.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a>
+      </footer>
+    </div>
+  </div>        
+</body>
+>>>>>>> master
