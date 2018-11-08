@@ -1,13 +1,13 @@
 function apiKey() {
     $.get("/getkey", function (key) {
-        console.log(key);
+        console.log('8bdcdc6eba2846f08cb9b0ee80489bd2');
 
 
         var userId = 6;
         var userName = "Luke";
 
 
-        console.log(key);
+        console.log('8bdcdc6eba2846f08cb9b0ee80489bd2');
 
 
         // AJAX call for ingredients using the recipe id provided in the first AJAX call
@@ -17,17 +17,17 @@ function apiKey() {
                 type: 'GET',
                 data: {
                     // key: '70c8aea98fcf8a18462e897015698b5f',
-                    // key: '06cd133b4e157f0b15c89a142ef9a5fe',
+                     // key: '06cd133b4e157f0b15c89a142ef9a5fe',
                      //key: '1b8bca77165417483de095aec76fb259',
                     // key: '6672f623c4ac7e28e35b289c7e8fa482',
-                    // key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
-                    // key: 'cf135f3bf6d990d16c115104b44488e1',
+                     key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
+                     //key: 'cf135f3bf6d990d16c115104b44488e1',
                     // key: 'ee76dd0ee8f48fb5c521a7d48696b8ac',
-                    // key: 'de652b66a0ed9e5c4aefcee2e3f791fd',
+                     //key: 'de652b66a0ed9e5c4aefcee2e3f791fd',
                     // key: '2435834079930c5216d0e6fe69dc6dd8',
                     // key: '6bebabc39fbf44828bad81f4395acae9',
-                    // key: '6ed7500f281e17d62e8f1dfb424b473c',
-                    key: key,
+                     //key: '6ed7500f281e17d62e8f1dfb424b473c',
+                    //key: key,
                     rId: recipeId,
                 },
                 success: function (result) {
@@ -60,17 +60,17 @@ function apiKey() {
                         // console.log("recipe result:", recipeResult);
 
                         $(".accordion").append(`
-                            <div class='card'>
-                                <div class='card-header' id=${num}> 
+                            <div class='card' style='background-color: oldlace;'>
+                                <div class='card-header' id=${num} style='background-color: rgba(255, 255, 255, 0.4);'> 
                                     <h5 class='mb-0'> 
-                                        <button class='btn btn-link collapsed' id=${num} type='button' data-toggle='collapse' data-target='#${recipeResult.recipe_id} aria-expanded='true' aria-controls='${recipeResult.recipe_id}'>
+                                        <button class='btn btn-link collapsed' id=${num} type='button' data-toggle='collapse' data-target='#${recipeResult.recipe_id} aria-expanded='true' aria-controls='${recipeResult.recipe_id}' style='color: #2f4f4f; font-weight: bolder;'>
                                             ${recipeResult.title}
                                         </button>
                                     </h5>
                                 </div>
-                                <div class='collapse item${num}' id=${recipeResult.recipe_id} aria-labelledby=${num} data-parent='#accordionExample'> 
-                                    <img data-img=${recipeResult.image_url} src=${recipeResult.image_url} class='rounded mx-auto mt-2 d-block' alt='recipe_img' style='height: 10rem; width: 10rem'> 
-                                    <div class='card-body'> 
+                                <div class='collapse item${num}' id=${recipeResult.recipe_id} aria-labelledby=${num} data-parent='#accordionExample' style='background-color: transparent;'> 
+                                    <img data-img=${recipeResult.image_url} src=${recipeResult.image_url} class='rounded mx-auto mt-2 d-block' alt='recipe_img' style='height: 12rem; width: 12rem'> 
+                                    <div class='card-body' style='background-color: transparent;'> 
                                         <a target='_blank' data-source=${recipeResult.source_url} href=${recipeResult.source_url} class='card-link mx-auto'>
                                             Recipe Link
                                         </a> 
@@ -112,7 +112,7 @@ function apiKey() {
                 url: 'https://www.food2fork.com/api/search',
                 type: 'GET',
                 data: {
-                    key: key,
+                    key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
                     q: food,
                     count: 5
                 },
