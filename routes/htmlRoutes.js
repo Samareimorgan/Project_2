@@ -26,6 +26,14 @@ module.exports = function (app) {
   // cart route loads shopping cart
   app.get("/cart", renderShoppingList);
 
+  app.get("/terms", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/term.html"));
+
+  app.get("/privacy", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/privacy.html"));
+  });
+  
+
 };
 
 //this function allows handlebars to display the database variables
@@ -39,6 +47,7 @@ function renderProfileList(req, res) {
 //this function allows handlebars to display the database variables
 function renderShoppingList(req, res) {
   db.CartTable.findAll({}).then(function (cartInfoToHTML) {
+    console.log("============= ", cartInfoToHTML);
     res.render("shoppinglist", { CartTable: cartInfoToHTML });
   })
 };

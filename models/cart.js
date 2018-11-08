@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
   var CartTable = sequelize.define("CartTable", {
-    Ingredients: DataTypes.STRING
+    Ingredients: DataTypes.STRING,
   });
 
   CartTable.associate = function (models) {
@@ -8,14 +8,15 @@ module.exports = function (sequelize, DataTypes) {
     // A Post can't be created without an Author due to the foreign key constraint
     CartTable.belongsTo(models.RecipeTable, {
       foreignKey: {
-        allowNull: false
-      }
+        allowNull: false,
+      },
+      constraints: false
     });
-    CartTable.belongsTo(models.UsersTable, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    // CartTable.belongsTo(models.UsersTable, {
+    //   foreignKey: {
+    //     allowNull: false,
+    //   }
+    // });
   };
   return CartTable;
 };

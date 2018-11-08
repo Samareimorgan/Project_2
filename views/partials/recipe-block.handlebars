@@ -2,6 +2,8 @@
 {{!-- this is displaying all of the recipes for all users... --}}
 
 <li>
-    <a href="{{recipeImage}}" >{{recipeName}}</a>
+    <img src="{{recipeImage}}" alt="recipe-image" style='height: 8rem; width: 8rem; border-radius: 10px'>
+    <a target='_blank' href="{{recipeSource}}" > {{recipeName}} </a>
+    <button class="delete-recipe" data-id="{{this.id}}">DELETE!</button>
 </li>
 
