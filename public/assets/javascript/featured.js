@@ -4,7 +4,7 @@ $("document").ready(function () {
 
     $.get("/getkey", function (key) {
 
-        // console.log(key);
+        console.log(key);
 
 
         // AJAX call for ingredients using the recipe id provided in the first AJAX call
@@ -13,7 +13,7 @@ $("document").ready(function () {
                 url: 'https://www.food2fork.com/api/get',
                 type: 'GET',
                 data: {
-                    key: key,
+                    key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
                     rId: recipeId,
                 },
                 success: function (result) {
@@ -38,9 +38,9 @@ $("document").ready(function () {
 
                         $(".carousel-inner").append(
                             `<div class="carousel-item col-md-4 active">
-                                <div class="card height: 20rem;">
-                                    <img class="card-img-top img-fluid" data-img= ${recipeResult.image_url} src= ${recipeResult.image_url} alt="Card image cap" style='height: 18rem;'>
-                                    <div class="card-body">
+                                    <div class="card" style="width: 16rem; height: 25rem; background-color: rgba(255, 255, 255, 0.4);">
+                                    <img class="card-img-top img-fluid" data-img= ${recipeResult.image_url} src= ${recipeResult.image_url} alt="Card image cap" style='min-height: 12rem; max-height: 12rem; max-width: 16rem; overflow: hidden;'>
+                                    <div class="card-body" style="background-color: transparent;">
                                         <h4 class="card-title" data-title=${recipeResult.title}>${recipeResult.title}</h4>
                                         <a target='_blank' data-source=${recipeResult.source_url} href=${recipeResult.source_url} class='card-link mx-auto'>
                                              Recipe Link
@@ -49,14 +49,12 @@ $("document").ready(function () {
                                              Save to Favorites
                                         </button> 
                                     </div>
-                                </div>
-                            </div>`
+                                    </div>
+                                </div>`
                         );
 
 
-                        // $(".accordion").find("button#" + num).on("click", function () {
-                        //     $(".item" + num).collapse("toggle");
-                        // });
+            
                     }
                 },
                 error: function (error) {
@@ -72,7 +70,7 @@ $("document").ready(function () {
             url: 'https://www.food2fork.com/api/search',
             type: 'GET',
             data: {
-                key: key,
+                key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
                 q: rand,
                 count: 3
             },
@@ -91,4 +89,4 @@ $("document").ready(function () {
             }
         });
     });
-}); 
+});

@@ -1,8 +1,132 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+/*Variables */ 
+
+$primary-color: darkolivegreen;
+$text-align: center;
+$a-color: #663300;
+$transparent-white:  rgba(255, 255, 255, 0.4);
+$border-radius: 10px;
+$align-content: center;
+$paddefault: 0 0 0 0;
+$mardefault: 0 0 0 0;
+$font-family: 'Euphoria Script', cursive;
+$text-shadow: 1px 1px white;
+
 
 body {
-  font: 100% $font-stack;
+  
   color: $primary-color;
+  align-content: $align-content;
+  text-align: $text-align;
+  background-image: url('../images/retina_wood.png');
+}
+
+nav{ 
+    a .dropdown-item {
+    color: $a-color;
+}
+
+    a .dropdown-menu {
+    color: $a-color;
+}
+}
+
+
+a {
+    color: $a-color;
+}
+
+a:hover {
+    color: darkslategray;
+}
+
+
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.container {
+    text-align: $text-align;
+    align-content: $align-content;
+    padding: $paddefault;
+    margin: 0 0 0 85px;
+    background-color: $transparent-white;
+    border-radius: $border-radius;
+    
+}
+
+.container-fluid {
+    background-color: $transparent-white;
+    border-radius: $border-radius;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+#carousel {
+    padding: 0 0 0 160px;
+    margin: $mardefault;
+}
+
+.pPic {
+    padding: $paddefault;
+    margin: 0 0 0 -12px;
+}
+
+#searchbar {
+    align-content: $align-content;
+    padding: $paddefault;
+    margin: 0 0 10px 240px;
+}
+
+#profileDetails {
+    clear: both;
+    padding: $paddefault;
+    margin: $mardefault;
+
+}
+
+.footer {
+    margin: 25px 0 0 0;
+    padding: $paddefault;
+    background-image: url('../images/retina_wood.png');
+    
+}
+
+.jumbotron { 
+    background-image: url(../images/blacklogo.png), url(../images/transsquare.png), url(../images/tart.jpg);
+    padding: 17rem 0 0 0;
+    margin: $mardefault;
+    background-size: 22%, 13%, 100%;
+    background-repeat: no-repeat, repeat-x, no-repeat;
+    background-position-x: 85%, 0;
+    background-position-y: 70%, 70%, 30%;
+} 
+
+
+h4, h2, h1 {
+    font-family: $font-family;
+    text-shadow: $text-shadow;
+    color: #243d72;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.proInfo, .saveRecipe, .shoList {
+    background-color: $transparent-white;
+    border-radius: $border-radius;
+    
+}
+.exclude {
+    background-color: transparent;
+}
+
+.dropdown-menu {
+    background-color: #99cc99;
 }
 

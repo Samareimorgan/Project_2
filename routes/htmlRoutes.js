@@ -33,7 +33,7 @@ module.exports = function (app) {
   // app.get("/privacy", function (req, res) {
   //       res.sendFile(path.join(__dirname, "../public/privacy.html"));
 
-  // })
+  //})
 }
 //this function allows handlebars to display the database variables
 function renderProfileList(req, res) {
@@ -50,4 +50,3 @@ function renderShoppingList(req, res) {
     res.render("shoppinglist", { CartTable: cartInfoToHTML });
   })
 };
-
