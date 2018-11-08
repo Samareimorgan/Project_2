@@ -40,10 +40,6 @@ function renderProfileList(req, res) {
   db.RecipeTable.findAll({}).then(function (profileInfoToHTML) {
     res.render("profile", { RecipeTable: profileInfoToHTML });
   })
-  db.UsersTable.findAll({}).then(function (profileInfoToHTML) {
-    res.render("profile", { id: profileInfoToHTML });
-    res.render("profile", { userName: profileInfoToHTML });
-  })
 };
 
 
