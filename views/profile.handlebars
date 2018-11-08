@@ -1,38 +1,70 @@
+
+    <body>
+        <!-- Facebook Javascript SDK-->
+
+    <script>
+        window.fbAsyncInit = function () {
+
+            FB.init({
+                appId: '290716314893480',
+                cookie: true,
+                xfbml: true,
+                version: 'v3.2'
+            });
+
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+                facebookAPI();
+
+            });
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
 <!--Beginning of HTML Body-->
 
 <div class="col">
-  <nav class="navbar navbar-expand-lg navbar">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar">
 
-    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Welcome
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/">Home</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="cart">Cart</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="profile">My Profile</a>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Welcome
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/">Home</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="cart">Shopping List</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="profile">My Profile</a>
 
 
-          </div>
-        </li>
-      </ul>
-    </div>
-    <span class="navbar-nav mr-auto" id="logIn">
-      <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false"
-        data-auto-logout-link="true" data-use-continue-as="false"></div>
-
-</div>
-</span>
-</nav>
+                    </div>
+                </li>
+            </ul>
+        </div>
+                <span class="navbar-nav mr-auto" id="logIn">
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"
+                        data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false">
+                        </div>
+                    
+                </span>
+    </nav>
 
 </div>
 
@@ -40,11 +72,12 @@
 <div class="container">
 
   <!--Jumbotron-->
-  <div class="jumbotron">
+  <div class="jumbotron col-md-12">
 
   </div>
 </div>
 <br>
+
 <div class="container exclude">
   <div class="row">
     <div class="col-md-3">
@@ -60,10 +93,8 @@
       </div>
     </div>
 
-
-<div class="container">
-
-    <!--Saved Recipes-->
+     <!--Saved Recipes-->
+    <div class="container">
 
     <div class="col-md-9">
       <div class="card saveRecipe">
@@ -104,17 +135,16 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+
 
 <!--Footer-->
 
-
 <div class="card footer">
-  <div class="card-body">
-    <footer> &copy; Team Spicy
-      <br>
-      <a href="/public/term.html">Terms & Conditions</a> | <a href="/public/privacy.html">Privacy Policy</a>
-    </footer>
-  </div>
-</div>
+    <div class="card-body">
+      <footer> &copy; Team Spicy
+          <br>
+          <a href="term.html">Terms & Conditions</a> | <a href="privacy.html">Privacy Policy</a>
+      </footer>
+    </div>
+  </div>        
+</body>
