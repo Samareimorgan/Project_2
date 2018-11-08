@@ -24,7 +24,7 @@ module.exports = function (app) {
   app.get("/profile", renderProfileList);
 
   // cart route loads shopping cart
-  app.get("/shoppinglist", renderShoppingList);
+  app.get("/cart", renderShoppingList);
 
   // app.get("/terms", function (req, res) {
   //       res.sendFile(path.join(__dirname, "../public/term.html"));
