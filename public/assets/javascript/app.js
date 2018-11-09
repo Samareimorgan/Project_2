@@ -1,6 +1,9 @@
 function apiKey() {
     $.get("/getkey", function (key) {
 
+        
+        var userId = 6;
+
         // AJAX call for ingredients using the recipe id provided in the first AJAX call
         function ingredientsAPI(recipeId, trueOrFalse, recipeResult, num) {
             $.ajax({
