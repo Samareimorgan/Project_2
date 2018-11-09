@@ -1,25 +1,18 @@
 <body>
-
     <!-- Facebook Javascript SDK-->
-
     <script>
         window.fbAsyncInit = function () {
-
             FB.init({
                 appId: '290716314893480',
                 cookie: true,
                 xfbml: true,
                 version: 'v3.2'
             });
-
             FB.getLoginStatus(function (response) {
                 statusChangeCallback(response);
                 facebookAPI();
-
             });
-
         };
-
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) { return; }
@@ -28,17 +21,12 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-
     <!--Begin HTML Body-->
-
     <div class="col">
         <nav class="navbar navbar-expand-lg navbar">
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
@@ -57,17 +45,11 @@
                 </ul>
             </div>
                 <span class="navbar-nav mr-auto" id="logIn">
-                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"
-                        data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false">
-                        </div>
-                    
-                </span>
+                   <div class="fb-login-button" data-width="70" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+               </span>
         </nav>
-
     </div>
-
     <div class="container">
-
                 <div class="jumbotron col-md-12">
                    
       
@@ -85,12 +67,9 @@
                         Ingredients will be added to your personal shopping list <a href="/cart">here</a>, and
                         save your recipes for later use <a href="/profile">here</a>!
                     </p>
-
-
                             <!--Searchbar and Recipe Display-->
                             <hr>
                             <h3>Search for recipes... </h3>
-
                         <div class="col-md-8" id="searchbar">
                             <form class="form-inline">
                                 <label class="sr-only" for="inlineFormInputName2">..</label>
@@ -103,21 +82,16 @@
                     </div>
               </div>
             </div>
-
         <br>
         <br>
-
          <!--Carousel -->
       <div class="container">
         <div class="container-fluid exclude">
-
         <h2 class="text-center mb-3">Featured Recipes</h2>
         <div class="carousel slide" data-ride="carousel" id="myCarousel">
             
             <div class="carousel-inner row w-100 mx-auto">
-
             </div>
-
             <!--<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -129,7 +103,6 @@
         </div>
     </div>
     </div>
-
             
 <!--Footer-->
       <div class="card footer">
@@ -140,5 +113,4 @@
               Policy</a>
           </footer>
         </div>
-
 </body>

@@ -40,8 +40,8 @@ module.exports = function (app) {
       },
     }).error(function (err) { //error handling
       console.log(err);
-    }).then(function (dbTodo) {
-      res.json(dbTodo);
+    }).then(function (dbUser) {
+      res.json(dbUser);
     });
   });
 
@@ -101,8 +101,7 @@ module.exports = function (app) {
 
 
 
-
-
+  
   //CART
   // GET route for getting all of the content for the cart
   app.get("/api/cart", function (req, res) {

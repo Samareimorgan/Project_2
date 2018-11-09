@@ -4,19 +4,12 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   CartTable.associate = function (models) {
-    // We're saying that a Post should belong to an Author
-    // A Post can't be created without an Author due to the foreign key constraint
     CartTable.belongsTo(models.RecipeTable, {
       foreignKey: {
         allowNull: false,
       },
       constraints: false
     });
-    // CartTable.belongsTo(models.UsersTable, {
-    //   foreignKey: {
-    //     allowNull: false,
-    //   }
-    // });
   };
   return CartTable;
 };

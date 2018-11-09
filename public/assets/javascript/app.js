@@ -1,14 +1,5 @@
 function apiKey() {
     $.get("/getkey", function (key) {
-        console.log('8bdcdc6eba2846f08cb9b0ee80489bd2');
-
-
-        var userId = 6;
-        var userName = "Luke";
-
-
-        console.log('8bdcdc6eba2846f08cb9b0ee80489bd2');
-
 
         // AJAX call for ingredients using the recipe id provided in the first AJAX call
         function ingredientsAPI(recipeId, trueOrFalse, recipeResult, num) {
@@ -16,25 +7,12 @@ function apiKey() {
                 url: 'https://www.food2fork.com/api/get',
                 type: 'GET',
                 data: {
-                    // key: '70c8aea98fcf8a18462e897015698b5f',
-                     // key: '06cd133b4e157f0b15c89a142ef9a5fe',
-                     //key: '1b8bca77165417483de095aec76fb259',
-                    // key: '6672f623c4ac7e28e35b289c7e8fa482',
-                     key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
-                     //key: 'cf135f3bf6d990d16c115104b44488e1',
-                    // key: 'ee76dd0ee8f48fb5c521a7d48696b8ac',
-                     //key: 'de652b66a0ed9e5c4aefcee2e3f791fd',
-                    // key: '2435834079930c5216d0e6fe69dc6dd8',
-                    // key: '6bebabc39fbf44828bad81f4395acae9',
-                     //key: '6ed7500f281e17d62e8f1dfb424b473c',
-                    //key: key,
+                    key: key,
                     rId: recipeId,
                 },
                 success: function (result) {
                     var results = JSON.parse(result);
                     // retreival of recipe ingredients as array
-                    // console.log("RESULTS: ", results);
-                    console.log(results.recipe.ingredients);
 
                     //this is so it will only go to the database if we "favorite" it
                     if (trueOrFalse) {
@@ -112,7 +90,7 @@ function apiKey() {
                 url: 'https://www.food2fork.com/api/search',
                 type: 'GET',
                 data: {
-                    key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
+                    key: key,
                     q: food,
                     count: 5
                 },
@@ -161,11 +139,6 @@ function apiKey() {
             deleteRecipe(currentRecipeId)
         })
 
-        // A function for creating a user
-        function enterUser(userData) {
-            $.post("/api/users", userData);
-            console.log("pushed user data");
-        }
 
         // This function inserts a new recipe into our database 
         function insertRecipe(recipeDataName, recipe, userId, recipeSource, recipeImage) {
@@ -212,16 +185,6 @@ function apiKey() {
                 }
             );
         }
-
-
-        //INFO FOR THE BELOW FUNCTION
-        //as of right now this is passing in the username luke and id variables into our database
-        //it will create one if it doesn't exist or will update the existing one with respective id
-        //YOU DO NOT NEED TO CHANGE ANY OF THIS BELOW...just the variables at the top need to have the info from facebook login
-        // enterUser({
-        //     userName: userName,
-        //     id: userId
-        // });
     });
 }
 

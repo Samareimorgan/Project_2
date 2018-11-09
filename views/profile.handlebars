@@ -1,25 +1,18 @@
-
-    <body>
+<body>
         <!-- Facebook Javascript SDK-->
-
     <script>
         window.fbAsyncInit = function () {
-
             FB.init({
                 appId: '290716314893480',
                 cookie: true,
                 xfbml: true,
                 version: 'v3.2'
             });
-
-            FB.getLoginStatus(function (response) {
-                statusChangeCallback(response);
-                facebookAPI();
-
-            });
-
+            //FB.getLoginStatus(function (response) {
+            //    statusChangeCallback(response);
+            //    facebookAPI();
+           // });
         };
-
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) { return; }
@@ -28,17 +21,12 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-
 <!--Beginning of HTML Body-->
-
 <div class="col">
     <nav class="navbar navbar-expand-lg navbar">
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
@@ -52,68 +40,46 @@
                         <a class="dropdown-item" href="cart">Shopping List</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="profile">My Profile</a>
-
-
                     </div>
                 </li>
             </ul>
         </div>
-                <span class="navbar-nav mr-auto" id="logIn">
-                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with"
-                        data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false">
-                        </div>
-                    
-                </span>
+           <span class="navbar-nav mr-auto" id="logIn">
+                   <div class="fb-login-button" data-width="70" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="false"></div>
+               </span>
     </nav>
-
 </div>
-
-
 <div class="container">
-
   <!--Jumbotron-->
   <div class="jumbotron col-md-12">
-
   </div>
 </div>
 <br>
-
 <div class="container exclude">
   <div class="row">
-    <div class="col-md-3">
+    <!--<div class="col-md-3">
       <div class="card proInfo">
         <div class="card-body">
           <h4>Your Profile Info</h4>
-
           <img src="https://via.placeholder.com/200x200" class="pPic" id="profilePhoto">
           <p id="profileName">Name</p>
           <p id="profileEmail">Email</p>
-
         </div>
       </div>
-    </div>
-
+    </div>-->
      <!--Saved Recipes-->
-    <div class="container">
-
-    <div class="col-md-9">
+    <div class="col-md-12">
       <div class="card saveRecipe">
         <div class="card-body saverec">
-
           <h1>Saved Recipes</h1>
           <p>View your favorite recipes here! You can also edit or delete your saved list.</p>
-
           <ul>
-
             {{!-- this pulls from the database and puts the info into the recipe-block.handlebars file --}} {{#each RecipeTable}} {{>recipe-block}}
             {{/each}}
           </ul>
-
-      </div>
-     </div>
-    </div>
+      
     
-
+    
           <!--Featured Recipes-->
           <div class="container-fluid exclude">
             <hr>
@@ -134,11 +100,10 @@
           </div>
         </div>
       </div>
-    </div>
-
-
+      </div>
+      </div>
+     </div>
 <!--Footer-->
-
 <div class="card footer">
     <div class="card-body">
       <footer> &copy; Team Spicy
