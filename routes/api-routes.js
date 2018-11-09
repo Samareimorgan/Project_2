@@ -101,8 +101,7 @@ module.exports = function (app) {
 
 
 
-
-
+  
   //CART
   // GET route for getting all of the content for the cart
   app.get("/api/cart", function (req, res) {

@@ -4,22 +4,17 @@ $("document").ready(function () {
 
     $.get("/getkey", function (key) {
 
-        console.log(key);
-
-
         // AJAX call for ingredients using the recipe id provided in the first AJAX call
         function ingredientsAPI(recipeId, trueOrFalse, recipeResult, num) {
             $.ajax({
                 url: 'https://www.food2fork.com/api/get',
                 type: 'GET',
                 data: {
-                    key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
+                    key: key,
                     rId: recipeId,
                 },
                 success: function (result) {
                     var results = JSON.parse(result);
-                    
-                    // retreival of recipe ingredients as array
 
                     //this is so it will only go to the database if we "favorite" it
                     if (trueOrFalse) {
@@ -70,7 +65,7 @@ $("document").ready(function () {
             url: 'https://www.food2fork.com/api/search',
             type: 'GET',
             data: {
-                key: '8bdcdc6eba2846f08cb9b0ee80489bd2',
+                key: key,
                 q: rand,
                 count: 3
             },
